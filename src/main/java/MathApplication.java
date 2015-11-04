@@ -23,7 +23,7 @@
  ***************************************************************************/
 public class MathApplication {
    private CalculatorService calcService;
-
+   
    public void setCalculatorService(CalculatorService calcService){
       this.calcService = calcService;
    }

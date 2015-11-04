@@ -26,11 +26,19 @@ import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
 public class TestRunner {
-   public static void main(String[] args) {
-      Result result = JUnitCore.runClasses(MathApplicationTester.class);
-      for (Failure failure : result.getFailures()) {
-         System.out.println(failure.toString());
-      }
-      System.out.println(result.wasSuccessful());
-   }
+	public static boolean boo;
+	public static boolean getBoo() {
+		return boo;
+	}
+	public static void setBoo(boolean boo) {
+		TestRunner.boo = boo;
+	}
+	
+	public static void main(String[] args) throws Exception {
+		Result result = JUnitCore.runClasses(MathApplicationTester.class);
+		for (Failure failure : result.getFailures()) {
+			System.out.println(failure.toString());
+		}
+		setBoo(result.wasSuccessful());
+	}
 }  	
